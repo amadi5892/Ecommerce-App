@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+import { ReactComponent as SharpLogo } from '../../assets/sharplogo.svg';
+
 import './navigation.styles.css';
 
 const Navigation = () => {
@@ -8,7 +10,7 @@ const Navigation = () => {
         <Fragment>
             <div className='navigation' >
                 <Link className='logo-container' to='/' >
-                    <span>Logo</span>
+                    <SharpLogo className='logo' />
                 </Link>
                 <div className='nav-links-container' >
                     <Link className='nav-link' to='/perfume'>

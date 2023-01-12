@@ -10,7 +10,11 @@
 .logo-container {
     height: 100%;
     width: 70px;
-    padding: 25px;
+}
+
+.logo {
+    height: 100%;
+    width: 100%;
 }
 
 .nav-links-container {
@@ -24,4 +28,8 @@
 .nav-link {
     padding: 10px 15px;
     cursor: pointer;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #DB8A74;
 }

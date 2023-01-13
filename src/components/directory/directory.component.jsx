@@ -1,15 +1,14 @@
+import DirectoryItem from '../directory-item/directory-item.component'
+
 import './directory.styles.css'
 
 const Directory = ({categories}) => {
-    const {imageUrl, title} = categories
     return (
-        <div className='directory-container' >
-            <div className='background-image' />
-            <div className='body'>
-                <h2>Men's Cologne</h2>
-                <p>Shop Now</p>
-            </div>
-        </div>
+    <div className='directory-container' >
+        {categories.map((category) => (
+            <DirectoryItem key={category.id} category={category} />
+        ))}
+    </div>
     )
 }
 

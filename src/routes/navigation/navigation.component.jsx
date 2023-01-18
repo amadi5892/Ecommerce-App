@@ -4,12 +4,18 @@ import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as SharpLogo } from '../../assets/sharplogo.svg';
 
 import { UserContext } from "../../context/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import './navigation.styles.css';
 
 const Navigation = () => {
-    const { currentUser } = useContext(UserContext);
+    const { currentUser, setCurrentUser } = useContext(UserContext);
     console.log(currentUser);
+
+    const signOutHandler = async () => {
+        await signOutUser();
+        setCurrentUser(null);
+    }
 
     return (
         <Fragment>
@@ -30,10 +36,13 @@ const Navigation = () => {
                     <Link className='nav-link' to='/shop'>
                         Shop
                     </Link>
-                    <Link className='nav-link' to='/auth'>
+                    {currentUser ? (
+                        <span className='nav-link' onClick={signOutHandler}>Sign Out</span>
+                    ) : (
+                        <Link className='nav-link' to='/auth'>
                         Sign In
-                    </Link>
-
+                        </Link>
+                    )}
                 </div>
             </div>
             <Outlet />

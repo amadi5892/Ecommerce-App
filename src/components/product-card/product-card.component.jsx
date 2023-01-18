@@ -1,4 +1,4 @@
-import './product-card.styles.css';
+import './product-card.styles.scss';
 
 import Button from '../button/button.component';
 
@@ -7,9 +7,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <div className='product-card-container' >
-            <div className='card-img' >
-                <img src={require('../../assets/img/'+imageUrl+'.jpg')} alt={`${name}`} />
-            </div>
+            <img src={require('../../assets/img/'+imageUrl+'.jpg')} alt={`${name}`} />
             <div className='footer' >
                 <span className='name' > {name} </span>
                 <span className='price' > {price} </span>

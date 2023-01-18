@@ -3,7 +3,7 @@ import { ProductsContext } from "../../context/product.context";
 
 import ProductCard from "../../components/product-card/product-card.component";
 
-import './shop.styles.css';
+import './shop.styles.scss';
 
 const Shop = () => {
     const { products } = useContext(ProductsContext);

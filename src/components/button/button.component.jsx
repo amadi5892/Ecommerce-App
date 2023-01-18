@@ -1,4 +1,4 @@
-import './button.styles.css';
+import './button.styles.scss';
 
 /* 
 default

@@ -1,11 +1,16 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { ReactComponent as SharpLogo } from '../../assets/sharplogo.svg';
 
+import { UserContext } from "../../context/user.context";
+
 import './navigation.styles.css';
 
 const Navigation = () => {
+    const { currentUser } = useContext(UserContext);
+    console.log(currentUser);
+
     return (
         <Fragment>
             <div className='navigation' >

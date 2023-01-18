@@ -36,10 +36,15 @@ const SingInForm = () => {
             resetFormFields();
 
         } catch(error) {
-            if(error.code === 'auth/wrong-password') {
-                alert('Wrong email or password');
-            }else {
-                console.log('user entered wrong credentials')
+            switch(error.code) {
+                case 'auth/wrong-password':
+                    alert('Wrong password for email');
+                    break;
+                case 'auth/user-not-found':
+                    alert('no user associated with this email');
+                    break;
+                default:
+                    console.log(error);
             }
         }
     }
@@ -58,7 +63,7 @@ const SingInForm = () => {
                 <FormInput label='Password' type='password' required name='password' value={password} onChange={handleChange} />
                 <div className='buttons-container' >
                     <Button type='submit' >Sign In</Button>
-                    <Button buttonType='google' onClick={logGoogleUser} >Google Sign In</Button>
+                    <Button type='button' buttonType='google' onClick={logGoogleUser} >Google Sign In</Button>
                 </div>
                 
             </form>

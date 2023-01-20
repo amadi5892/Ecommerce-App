@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {ReactComponent as SharpLogo} from '../../assets/sharplogo.svg' 
+import {ReactComponent as SharpLogo} from '../../assets/sharplogo.svg'
+
 export const NavigationContainer = styled.div`
     height: 70px;
     width: 100%;

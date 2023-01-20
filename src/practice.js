@@ -1,13 +1,14 @@
-function diagonalDifference(arr) {
+function staircase(n) {
     // Write your code here
-    let first = 0;
-    let second = 0;
+    let p = '';
     
-    for (let i = 0; i < 3; i++) {
-        first += arr[i][i];
-        second += arr[i][arr.length - (i + 1)];
+    for(let i = 1; i <= n; i++) {
+        let blank = ' '.repeat(n-i);
+        let star = '#'.repeat(i);
+        p += blank + star +'\n';
     }
-    return Math.abs(first - second);
+    
+    console.log(p);
 }
 
-console.log(diagonalDifference([[11, 2, 4], [4, 5, 6], [10, 8, -12]]))
+staircase(6);

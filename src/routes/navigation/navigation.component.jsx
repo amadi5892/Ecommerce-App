@@ -10,7 +10,7 @@ import { UserContext } from "../../context/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { CartContext } from "../../context/cart.context";
 
-import './navigation.styles.scss';
+import {NavigationContainer, NavLinksContainer, NavLink, LogoContainer, Logo} from './navigation.styles.jsx';
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext);
@@ -20,34 +20,34 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            <div className='navigation' >
-                <Link className='logo-container' to='/' >
-                    <SharpLogo className='logo' />
-                </Link>
-                <div className='nav-links-container' >
-                    <Link className='nav-link' to='/perfume'>
+            <NavigationContainer >
+                <LogoContainer to='/' >
+                    <Logo />
+                </LogoContainer>
+                <NavLinksContainer >
+                    <NavLink to='/shop/womens'>
                         Women's Perfume
-                    </Link>
-                    <Link className='nav-link' to='/cologne'>
+                    </NavLink>
+                    <NavLink to='/shop/mens'>
                         Men's Cologne
-                    </Link>
-                    <Link className='nav-link' to='/unisex'>
+                    </NavLink>
+                    <NavLink to='/shop/unisex'>
                         Unisex Fragrance
-                    </Link>
-                    <Link className='nav-link' to='/shop'>
+                    </NavLink>
+                    <NavLink to='/shop'>
                         Shop
-                    </Link>
+                    </NavLink>
                     {currentUser ? (
-                        <span className='nav-link' onClick={signOutUser}>Sign Out</span>
+                        <NavLink as='span' onClick={signOutUser}>Sign Out</NavLink>
                     ) : (
-                        <Link className='nav-link' to='/auth'>
+                        <NavLink to='/auth'>
                         Sign In
-                        </Link>
+                        </NavLink>
                     )}
                     <CartIcon />
-                </div>
+                </NavLinksContainer>
                 {cartOpen && <CartDropdown /> }
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     )
